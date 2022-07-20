@@ -1,0 +1,1 @@
+export * as deckRepository from './deck.repository'
