@@ -5,12 +5,12 @@ npm-debug.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-*/.env
-./node_modules
+.env
+node_modules
 dist
 dist-ssr
 *.local
-./coverage
+coverage
 
 # Editor directories and files
 .vscode/*
