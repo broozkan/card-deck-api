@@ -6,10 +6,11 @@ pnpm-debug.log*
 lerna-debug.log*
 
 */.env
-*/node_modules
+./node_modules
 dist
 dist-ssr
 *.local
+./coverage
 
 # Editor directories and files
 .vscode/*
