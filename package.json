@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "jest --coverage",
-    "test:unit": "jest --coverage ./tests/unit",
-    "test:integration": "jest --coverage ./tests/integration",
+    "test:unit": "jest --verbose ./tests/unit",
+    "test:integration": "jest --verbose ./tests/integration",
     "cleanTestCache": "jest --clearCache",
     "lint": "eslint **/*.ts",
     "format": "eslint **/*.ts --fix",
