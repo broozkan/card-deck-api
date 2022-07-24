@@ -1,16 +1,10 @@
-import express, { Express, Request, Response } from 'express';
-import dotenv from 'dotenv';
-import { deckController } from './controllers';
+import mongoose from 'mongoose'
+import app from "./app";
+import config from "./config/config";
 
-dotenv.config();
-
-const app: Express = express();
-const port = process.env.PORT;
-
-app.get('/', (req: Request, res: Response) => {
-    res.send('Express + TypeScript Server');
-});
-
-app.listen(port, () => {
-    console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
+mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
+    console.log('connected to mongoDB');
+    let server = app.listen(config.port, () => {
+        console.log(`listening on ${config.port}`);
+    });
 });
