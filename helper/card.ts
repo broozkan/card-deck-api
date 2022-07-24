@@ -1,5 +1,5 @@
 import { ICard } from "../models/card.model";
-import { FULL_TYPE, SHORT_TYPE } from "./constants";
+import { SHORT_TYPE } from "./constants";
 import deckTemplate from "../lib/deck";
 
 interface DrawData {
