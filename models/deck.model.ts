@@ -1,29 +1,34 @@
 import { Schema, model, Document } from 'mongoose';
-import { ICard } from "./card.model"
+import { ICard, Card, cardSchema } from "./card.model"
+import { FULL_TYPE, SHORT_TYPE } from '../helper/constants';
+import generateUUID from '../helper/uuid';
 
 export interface IDeck {
+    _id?: String,
+    deckId?: String,
     type: String,
-    isShuffled: Boolean
+    shuffled: Boolean
     cards?: Array<ICard>
 }
 
 const deckSchema: Schema = new Schema<IDeck>(
     {
+        deckId: {
+            type: String,
+            required: true
+        },
         type: {
             type: String,
-            enum: ["FULL", "SHORT"],
-            default: "FULL",
+            enum: [FULL_TYPE, SHORT_TYPE],
+            default: FULL_TYPE,
             required: false
         },
-        isShuffled: {
+        shuffled: {
             type: Boolean,
             default: false,
             required: false
         },
-        cards: [{
-            type: Schema.Types.ObjectId,
-            required: true
-        }]
+        cards: [cardSchema]
     }
 );
 

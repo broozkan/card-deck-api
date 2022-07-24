@@ -1,7 +1,7 @@
 import { Schema, model, Document } from 'mongoose';
 
 export interface ICard {
-    value: String,
+    value: String | Number,
     suit: String,
     code: String
 }
@@ -26,4 +26,4 @@ const cardSchema = new Schema<ICard>(
 
 const Card = model<ICard>('Card', cardSchema);
 
-export { Card }
+export { Card, cardSchema }
