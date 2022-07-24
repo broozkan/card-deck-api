@@ -1,11 +1,11 @@
 import assert from "assert";
-import { generateCards, shuffleCards } from "../../helper/card"
-import { FULL_TYPE, SHORT_TYPE } from "../../helper/constants"
+import { generateCards, shuffleCards } from "../../../helper/card"
+import { FULL_TYPE, SHORT_TYPE } from "../../../helper/constants"
 
 describe('Test Card Helper', function () {
     it('it should create 52 cards when FULL type passed without shuffled', function () {
         let expectedCards = getFullDeckWithoutShuffled()
-        var shuffled = false
+        let shuffled = false
         let actualCards = generateCards(shuffled, FULL_TYPE)
 
         assert.equal(actualCards.length, expectedCards.length)
@@ -13,7 +13,7 @@ describe('Test Card Helper', function () {
 
     it('it should create 52 cards when FULL type passed with shuffled', function () {
         let ordinaryCards = getFullDeckWithoutShuffled()
-        var shuffled = true
+        let shuffled = true
         let actualCards = generateCards(shuffled, FULL_TYPE)
 
         assert.equal(actualCards.length, ordinaryCards.length)
@@ -22,7 +22,7 @@ describe('Test Card Helper', function () {
 
     it('it should create 32 cards when SHORT type passed without shuffled', function () {
         let expectedCards = getShortDeckWithoutShuffled()
-        var shuffled = false
+        let shuffled = false
         let actualCards = generateCards(shuffled, SHORT_TYPE)
 
         assert.equal(actualCards.length, expectedCards.length)
@@ -30,12 +30,13 @@ describe('Test Card Helper', function () {
 
     it('it should create 32 cards when SHORT type passed with shuffled', function () {
         let ordinaryCards = getShortDeckWithoutShuffled()
-        var shuffled = true
+        let shuffled = true
         let actualCards = generateCards(shuffled, SHORT_TYPE)
 
         assert.equal(actualCards.length, ordinaryCards.length)
         assert.notDeepEqual(actualCards, ordinaryCards)
     })
+
     it('it should shuffle cards when shuffleCards called', function () {
         let ordinaryCards = getFullDeckWithoutShuffled()
         let shuffledCards = shuffleCards(ordinaryCards)
@@ -43,9 +44,6 @@ describe('Test Card Helper', function () {
         assert.notDeepEqual(shuffledCards, ordinaryCards)
     })
 })
-
-
-
 
 function getFullDeckWithoutShuffled() {
     return [

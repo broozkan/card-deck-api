@@ -1,8 +1,14 @@
+import assert from "assert"
+import { IDeck } from "../../interfaces/interfaces"
 import { Deck } from "../../models"
-import { IDeck } from "../../models/deck.model"
 
 const insertDeck = async (deck: IDeck) => {
-    await Deck.create(deck)
+    try {
+        await Deck.create(deck)
+    } catch (err: any) {
+        // for failing test
+        assert.equal(true, false)
+    }
 }
 
 export {

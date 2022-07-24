@@ -1,13 +1,12 @@
 import sinon from "sinon";
 import httpMocks from "node-mocks-http";
-import { deckRepository } from "../../repository";
-import { createDeck, drawCard, getDeck } from "../../controllers/deck.controller";
+import { deckRepository } from "../../../repository";
+import { createDeck, drawCard, getDeck } from "../../../controllers/deck.controller";
 import assert from "assert";
-import { ResponseType } from "../../types/response.type";
+import { ResponseType } from "../../../types/response.type";
 import httpStatus from "http-status";
-import { getDeckWithThreeDrawWithoutShuffled, getFullDeckWithoutShuffled } from "./card.test";
-var sandbox = require("sinon").createSandbox();
-
+import { getDeckWithThreeDrawWithoutShuffled, getFullDeckWithoutShuffled } from "../helper/card.test";
+let sandbox = require("sinon").createSandbox();
 
 describe("Deck Controller", function () {
     afterEach(function () {
@@ -54,8 +53,7 @@ describe("Deck Controller", function () {
         });
 
         await sandbox.stub(deckRepository, 'saveDeck').resolves(expectedResponse);
-
-        const result = await createDeck(req, res)
+        await createDeck(req, res)
 
         assert.equal(res.statusCode, httpStatus.BAD_REQUEST);
     })

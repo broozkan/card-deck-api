@@ -1,10 +1,10 @@
 import httpStatus from "http-status"
+import { IDeck } from "../interfaces/interfaces"
 import { Deck } from "../models"
-import { IDeck } from "../models/deck.model"
 import { ResponseType } from "../types/response.type"
 
 const saveDeck = async (deck: IDeck): Promise<ResponseType> => {
-    var res: ResponseType = { isSuccess: false }
+    let res: ResponseType = { isSuccess: false }
     try {
         let result = await Deck.create(deck)
         res.data = result
@@ -17,7 +17,7 @@ const saveDeck = async (deck: IDeck): Promise<ResponseType> => {
 }
 
 const getDeck = async (deckId: String): Promise<ResponseType> => {
-    var res: ResponseType = { isSuccess: false }
+    let res: ResponseType = { isSuccess: false }
     try {
         let result = await Deck.findOne({ deckId }, { "cards._id": 0 })
         if (!result) {
@@ -36,7 +36,7 @@ const getDeck = async (deckId: String): Promise<ResponseType> => {
 }
 
 const updateDeck = async (id: String, deck: IDeck): Promise<ResponseType> => {
-    var res: ResponseType = { isSuccess: false }
+    let res: ResponseType = { isSuccess: false }
     try {
         let result = await Deck.findByIdAndUpdate(id, deck)
         res.data = result

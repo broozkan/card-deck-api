@@ -1,6 +1,6 @@
 import assert from "assert"
 import httpMocks from "node-mocks-http"
-import { validateBodyFields, validateParamFields } from "../../helper/validation"
+import { validateBodyFields, validateParamFields } from "../../../helper/validation"
 
 describe('Validation Test Helper', function () {
     it('should return error when validateParamFields called with required parts is missing in params', function () {

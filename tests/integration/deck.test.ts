@@ -2,12 +2,12 @@ import { setupTestDB } from "../utils/setupTestDB";
 import request from 'supertest'
 import httpStatus from "http-status";
 import app from '../../app'
-import { IDeck } from "../../models/deck.model";
 import { FULL_TYPE } from "../../helper/constants";
-import { getDeckWithThreeDrawWithoutShuffled, getFullDeckWithoutShuffled } from "../unit/card.test";
+import { getDeckWithThreeDrawWithoutShuffled, getFullDeckWithoutShuffled } from "../unit/helper/card.test";
 import assert from "assert";
 import { insertDeck } from "../fixtures/deck.fixture";
 import httpMocks from "node-mocks-http";
+import { IDeck } from "../../interfaces/interfaces";
 
 
 setupTestDB()

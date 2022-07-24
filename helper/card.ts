@@ -1,11 +1,6 @@
-import { ICard } from "../models/card.model";
 import { SHORT_TYPE } from "./constants";
-import deckTemplate from "../lib/deck";
-
-interface DrawData {
-    newCards: Array<ICard>
-    drawedCards: Array<ICard>
-}
+import deckTemplate from "../common/deck";
+import { ICard, IDrawData } from "../interfaces/interfaces";
 
 const generateCards = (shuffled: Boolean, type: String): Array<ICard> => {
     let cards: Array<ICard> = []
@@ -47,7 +42,7 @@ const shuffleCards = (cards: Array<ICard>): Array<ICard> => {
 }
 
 
-const drawCards = (cards: Array<ICard>, count: Number): DrawData => {
+const drawCards = (cards: Array<ICard>, count: Number): IDrawData => {
     if (cards.length < count) count = cards.length
 
     let drawedCards: Array<ICard> = cards.splice(0, count as number)

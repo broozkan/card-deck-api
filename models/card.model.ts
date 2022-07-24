@@ -1,11 +1,5 @@
 import { Schema, model, Document } from 'mongoose';
-
-export interface ICard {
-    value: String | Number,
-    suit: String,
-    code: String
-}
-
+import { ICard } from '../interfaces/interfaces';
 
 const cardSchema = new Schema<ICard>(
     {

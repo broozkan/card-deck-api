@@ -1,5 +1,4 @@
-import { ICard } from "../models/card.model";
-import { IDeck } from "../models/deck.model";
+import { ICard, IDeck } from "../interfaces/interfaces"
 
 const prepareDeckData = (type: String, shuffled: Boolean, cards: Array<ICard>): IDeck => {
     return {
@@ -8,9 +7,6 @@ const prepareDeckData = (type: String, shuffled: Boolean, cards: Array<ICard>): 
         cards
     }
 }
-
-
-
 
 export {
     prepareDeckData
